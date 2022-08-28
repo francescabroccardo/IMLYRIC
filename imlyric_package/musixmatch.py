@@ -26,3 +26,13 @@ def get_lyrics_id(track_id):
         if obj['message']['header']['status_code'] == 200:
             return obj['message']['body']['lyrics']['lyrics_body']
     raise Exception
+
+def get_track(artist, album, track):
+    url = MUSISXMATCH_URI + 'matcher.track.get'
+    resp = requests.get(url,
+                        params={'q_track': track, 'q_artist': artist, 'q_album': album, 'apikey': MUSISXMATCH_API_KEY})
+    if resp.status_code == 200:
+        obj = resp.json()
+        if obj['message']['header']['status_code'] == 200:
+            return obj['message']['body']['track']
+    raise Exception
