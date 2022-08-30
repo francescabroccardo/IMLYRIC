@@ -15,19 +15,34 @@ def get_current_track(access_token):
     )
     json_resp = response.json()
 
+    track_id = json_resp['item']['id']
+    track_name = json_resp['item']['name']
+    artists = [artist for artist in json_resp['item']['artists']]
+
+    link = json_resp['item']['external_urls']['spotify']
+
+    artist_names = ', '.join([artist['name'] for artist in artists])
+    first_artist = artist_names.split(',')[0]
+    print(artist_names)
+
     current_track_info = {
-        'track_name': 'abc',
-        'id': 'abc',
-        'artist': 'abc'
+        "id": track_id,
+        "track_name": track_name,
+        "artist": first_artist,
+        "link": link
     }
 
     return current_track_info
 
 
 def get_info_song():
-  song_name = 'ABC'
-  song_name = 'ABC'
-  return song_name, song_artist
+    current_track_id = None
+    current_track_info = get_current_track(spo_token)
+
+    if current_track_info['id'] != current_track_id:
+        song_name = current_track_info['track_name']
+        song_artist = current_track_info['artist']
+    return song_name, song_artist
 
 
 def main():
@@ -38,4 +53,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    get_current_track(access_token):
     get_info_song()
