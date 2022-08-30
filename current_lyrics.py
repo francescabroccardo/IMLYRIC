@@ -1,4 +1,5 @@
 import requests
+from musixmatch import Musixmatch
 
 # spotify authentication
 spo_getcurrent_url = 'https://api.spotify.com/v1/me/player/currently-playing'  # got by Spotify for Developers webpage
@@ -9,9 +10,7 @@ spo_token = 'BQDpxsDbh2Frq-JGm9f4ZO_7EXqbe2kI0KbGBKRfVuzuqbgIrHOb8OP00yguqyoXyUA
 def get_current_track(access_token):
     response = requests.get(
         spo_getcurrent_url,
-        headers={
-            "Authorization": f"Bearer {access_token}"
-        }
+        headers={'Authorization': f'Bearer {token}'}
     )
     json_resp = response.json()
 
@@ -45,13 +44,26 @@ def get_info_song():
     return song_name, song_artist
 
 
-def main():
-    lyrics = "ABC"
+def get_lyrics(song, artist):
+    # Auth MusixMatch API
+    token = 'f5850d5632895b51bffdc58767606547'
+    musixmatch = Musixmatch(token)
 
-    return lyrics
+    # Get lyrics
+    lyrics = musixmatch.matcher_lyrics_get(song, artist)
+    testo = lyrics['message']['body']['lyrics']['lyrics_body']
+
+    return testo
+
+
+def main():
+    get_current_track(access_token):
+    get_info_song()
+    get_lyrics(song_name, song_artist)
+
+    return 1
 
 
 if __name__ == '__main__':
     main()
-    get_current_track(access_token):
-    get_info_song()
+    
