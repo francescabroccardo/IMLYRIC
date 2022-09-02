@@ -18,13 +18,11 @@ class TestSpotify(TestCase):
         """
         self.assertRaises(Exception, get_tracks_of_playlist, None)
 
-
     def test_get_tracks_of_playlist_wrong(self):
         """
         Tests get_tracks_of_playlist with a wrong input
         """
         self.assertRaises(Exception, get_tracks_of_playlist, "oqnrueouiq3ojenrneriwewelkfe")
-
 
     def test_get_tracks_of_playlist_right(self):
         """
