@@ -18,5 +18,4 @@ def get_featured_playlists():
 
 def get_tracks_of_playlist(id):
     results = sp.playlist_items(id)['items']
-    print(results)
     return results
