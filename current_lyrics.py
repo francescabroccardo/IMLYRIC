@@ -57,17 +57,34 @@ def get_lyrics(song, artist):
     return testo
 
 
-def main():
-    # canzone = get_curr_track_info(spo_token)[0]
-    # artista = get_curr_track_info(spo_token)[1]
+def add_song(fav_song_id):
+    token = 'BQDo8YQtSFRivxQZAmCl_JOk6Uhzw9IQYbIrw020vVnr_nU4cHgyucWshBd_KpkG_WGaOhXa2a2Ku_CIwtvbcyzbdd-n2-9QvPVHC8gJUjjL43jmjU_GMB1nC8mor8YaCsT2gEnCHYDpIKyx4CGf3qcA9DX0a6o7Hpuf0-fTGa28ZLtH7ZrKGRTeDwN6lDcK0TbFaEDajw1uzZGv'
+    query = 'https://api.spotify.com/v1/me/tracks?ids={canzone}'.format(canzone=fav_song_id)
 
+    response = requests.put(
+        query,
+        data={'ids': fav_song_id},
+        headers={'Authorization': f'Bearer {token}'}
+    )
+
+    if response.status_code == 200:
+        print('Song added succesfully!')
+    else:
+        print('Failed to add the song, error: ' + str(response.status_code) + ", " + response.reason)
+        return 0
+
+    return 1
+
+
+def main():
     canz_id = str(get_curr_track_info())
     testo = get_lyrics(song_name, song_artist)
+    add_song(canz_id)
 
     print(song_name + ', ' + song_artist + ' Song ID = ' + canz_id + ' ' + testo)
 
     return 1
 
 
-if __name__ == '__main__':
+if __name__ == '_main_':
     main()
