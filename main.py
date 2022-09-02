@@ -26,18 +26,22 @@ def throw_console_errors(message):
 
 
 def main(arguments):
+    """ Command Line Interface """
     if arguments.featured_playlists:
         playlists = get_featured_playlists()
         print("List of playlists: ")
-        for i, x in enumerate(playlists):
+        for i, x in enumerate(playlists):  # show playlists
             print(f"{i + 1}: {x['name']}")
+
         n = int(input("Choose playlist: ")) - 1
+
         id_playlist = playlists[n]['id']
         print("List of tracks: ")
         tracks = get_tracks_of_playlist(id_playlist)
-        for i, x in enumerate(tracks):
+        for i, x in enumerate(tracks):  # show tracks
             if x['track']:
                 print(f"{i + 1}: {x['track']['name']}")
+
         n = int(input("Choose track: ")) - 1
         track_name = tracks[n]['track']['name']
         artist_name = tracks[n]['track']['artists'][0]['name']
