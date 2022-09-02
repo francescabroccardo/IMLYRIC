@@ -45,16 +45,6 @@ def get_curr_track_info():
     return song_id
 
 
-def get_lyrics(song, artist):
-    # Auth MusixMatch API
-    token = 'f5850d5632895b51bffdc58767606547'
-    musixmatch = Musixmatch(token)
-
-    # Get lyrics
-    lyrics = musixmatch.matcher_lyrics_get(song, artist)
-    testo = lyrics['message']['body']['lyrics']['lyrics_body']
-
-    return testo
 
 
 def add_song(fav_song_id):
@@ -74,17 +64,3 @@ def add_song(fav_song_id):
         return 0
 
     return 1
-
-
-def main():
-    canz_id = str(get_curr_track_info())
-    testo = get_lyrics(song_name, song_artist)
-    add_song(canz_id)
-
-    print(song_name + ', ' + song_artist + ' Song ID = ' + canz_id + ' ' + testo)
-
-    return 1
-
-
-if __name__ == '_main_':
-    main()
