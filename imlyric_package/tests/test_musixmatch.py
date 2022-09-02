@@ -41,7 +41,7 @@ class TestMusixmatch(TestCase):
         """
         Tests get_lyrics_artist_track with a valid input.
         """
-        res = get_lyrics_artist_track("The Beatles","Let it be")
+        res = get_lyrics_artist_track("The Beatles", "Let it be")
         self.assertRegex(res, "When I find myself in times of trouble.*")
 
     def test_get_track_none(self):
@@ -54,7 +54,7 @@ class TestMusixmatch(TestCase):
         """
         Tests get_track with a wrong input
         """
-        self.assertRaises(Exception, get_track,"0i2ojwoirnrwe", "iwreirewirujr", "3oko33koww")
+        self.assertRaises(Exception, get_track, "0i2ojwoirnrwe", "iwreirewirujr", "3oko33koww")
 
     def test_get_track_right(self):
         """
@@ -67,4 +67,3 @@ class TestMusixmatch(TestCase):
         self.assertEqual(album_name, "The Beatles Boxset")
         self.assertEqual(track_name, "Let It Be")
         self.assertEqual(track_id, 227377601)
-
