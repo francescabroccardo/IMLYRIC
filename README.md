@@ -2,7 +2,12 @@
 
 GNU GENERAL PUBLIC LICENSE
 
-The aim of our project is to create a simple software that behaves like a weather app. O
+The aim of our project is to create a python package that allows to interact with the API of:
+
+- [Musixmatch](https://developer.spotify.com/documentation/web-api/): it allows to find lyrics information about songs;
+- [Spotify](https://developer.spotify.com/documentation/web-api/):  it allows to find information about songs,
+  playlists, albums, artists in Spotify.
+
 
 # Prerequisites
 
@@ -66,14 +71,6 @@ When I find myself in times of trouble
 ...
 ```
 
-# APIs
-
-The program exploits the APIs of:
-
-- [Musixmatch](https://developer.spotify.com/documentation/web-api/): it allows to find lyrics information about songs;
-- [Spotify](https://developer.spotify.com/documentation/web-api/):  it allows to find information about songs,
-  playlists, albums, artists in Spotify.
-
 # Testing
 
 We have tested our main modules musixmatch.py module and spotify.py module. You can find both tests in the
@@ -87,7 +84,13 @@ All tests run correctly.
 
 # Authors
 
-Francesca Broccardo Daniel Pezzettone Federico Polin Alessandro Brunelli
+Francesca Broccardo
+
+Daniel Pezzettone
+
+Federico Polin
+
+Alessandro Brunelli
 
 # License
 
