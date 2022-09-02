@@ -2,7 +2,7 @@
 base_url = "https://api.musixmatch.com/ws/1.1/"
 
 # your api key
-api_key = "&apikey=f7c68bc20cd37e4679746653dd16e65f"
+api_key = "f5850d5632895b51bffdc58767606547"
 
 # api methods (not everything will be used)
 a1 = lyrics_matcher = "matcher.lyrics.get"
@@ -21,7 +21,7 @@ a13 = artist_getter = "artist.get"
 a14 = album_getter = "album.get"
 a15 = subtitle_getter = "track.subtitle.get"
 a16 = snippet_getter = "track.snippet.get"
-api_methods = [a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16]
+api_methods = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16]
 
 # format url
 format_url = "?format=json&callback=callback"
@@ -40,32 +40,33 @@ p10 = word_in_lyrics_parameter = "&q_lyrics="
 p11 = music_genre_parameter = "&f_music_genre_id="
 p12 = music_language_parameter = "&f_lyrics_language="
 p13 = artist_rating_parameter = "&s_artist_rating="
-p14 = track_rating_parameter= "&s_track_rating="
+p14 = track_rating_parameter = "&s_track_rating="
 p15 = quorum_factor_parameter = "&quorum_factor="
 p16 = artists_id_filter_parameter = "&f_artist_id="
 p17 = country_parameter = "&country="
 p18 = release_date_parameter = "&s_release_date="
 p19 = album_name_parameter = "&g_album_name="
-paramaters = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19]
+paramaters = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19]
 
 # arrays with paramaters for each method
-x1 = lyrics_matcher_parameters = [p1,p2]
+x1 = lyrics_matcher_parameters = [p1, p2]
 x2 = lyrics_track_matcher_parameters = [p3]
-x3 = track_matcher_parameters = [p1,p2,p6,p7]
-x4 = subtitle_matcher_parameters = [p1,p2]
-x5 = track_search_paramaters = [p1,p2,p10,p4,p11,p12,p12,p14,p15,p8,p9]
-x6 = artist_search_parameters = [p1,p16,p8,p9]
-x7 = album_tracks_parameters = [p5,p6,p8,p9]
-x8 = track_charts_paramaters = [p8,p9,p17,p6]
-x9 = artist_charts_parameters = [p8,p9,p17]
-x10 = related_artists_parameters = [p4,p8,p9]
-x11 = artists_album_getter_paramaters = [p4,p18,p19,p8,p9]
+x3 = track_matcher_parameters = [p1, p2, p6, p7]
+x4 = subtitle_matcher_parameters = [p1, p2]
+x5 = track_search_paramaters = [p1, p2, p10, p4, p11, p12, p12, p14, p15, p8, p9]
+x6 = artist_search_parameters = [p1, p16, p8, p9]
+x7 = album_tracks_parameters = [p5, p6, p8, p9]
+x8 = track_charts_paramaters = [p8, p9, p17, p6]
+x9 = artist_charts_parameters = [p8, p9, p17]
+x10 = related_artists_parameters = [p4, p8, p9]
+x11 = artists_album_getter_paramaters = [p4, p18, p19, p8, p9]
 x12 = track_getter_parameters = [p3]
 x13 = artist_getter_parameters = [p4]
 x14 = album_getter_parameters = [p5]
 x15 = subtitle_getter_parameters = [p3]
 x16 = snippet_getter_parameters = [p3]
-paramater_lists = [x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16]
+paramater_lists = [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16]
+
 
 # get the paramaters for the correct api method
 def get_parameters(choice):
