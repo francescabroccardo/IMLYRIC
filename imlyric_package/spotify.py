@@ -13,16 +13,26 @@ sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_
 
 
 def get_featured_playlists():
+    """
+    :return: the list of featured playlists
+    """
     results = sp.featured_playlists()['playlists']['items']
     return results
 
 
 def get_tracks_of_playlist(id):
+    """
+    :param id: playlist
+    :return: the list of tracks in the playlist id
+    """
     results = sp.playlist_items(id)['items']
     return results
 
 
-def get_curr_track_info():
+def get_curr_track_id():
+    """
+    :return: the id of the track the user is currently listening
+    """
     token = 'BQDfXRTqChB9KaxvfyYHcV8TocDKvvxtxpNJ58b7nNohg1S8Q9TEaeKq0tmNIDmuqGt-xNd2uIBWqJUDmYijCX6GPGKLulPvezaHWxXMkBgdXvgmPaZoXAz37GBr4mlbV1P0XIdJBhwxH2YTXIe9H-Ypg8sN8b-C9yWwMBaJGx55ohXGJ3lbhYy17vhvXzo5Dv3VG4iO'
     query = 'https://api.spotify.com/v1/me/player/currently-playing'  # got by Spotify for Developers webpage
 
@@ -66,6 +76,10 @@ def get_curr_track_info():
 
 
 def add_song(fav_song_id):
+    """
+    :param fav_song_id: song to add
+    :return: 1 if fav_song_id is added to the library, -1 otherwise
+    """
     token = 'BQDo8YQtSFRivxQZAmCl_JOk6Uhzw9IQYbIrw020vVnr_nU4cHgyucWshBd_KpkG_WGaOhXa2a2Ku_CIwtvbcyzbdd-n2-9QvPVHC8gJUjjL43jmjU_GMB1nC8mor8YaCsT2gEnCHYDpIKyx4CGf3qcA9DX0a6o7Hpuf0-fTGa28ZLtH7ZrKGRTeDwN6lDcK0TbFaEDajw1uzZGv'
     query = 'https://api.spotify.com/v1/me/tracks?ids={canzone}'.format(canzone=fav_song_id)
 
