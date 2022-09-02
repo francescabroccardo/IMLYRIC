@@ -11,7 +11,7 @@ def parse_arguments():
         epilog="Powered by Musixmatch and Spotify")
     parser.add_argument('--current_track', action='store_true',
                         help="to find lyrics of the track thes user is listening")
-    parser.add_argument("--featured_playlist", action='store_true',
+    parser.add_argument("--featured_playlists", action='store_true',
                         help="to find lyrics of tracks of the featured playlist")
     parser.add_argument("--album", help="name of the album")
     parser.add_argument("--artist", help="name of the artist")
@@ -26,7 +26,7 @@ def throw_console_errors(message):
 
 
 def main(arguments):
-    if arguments.featured_playlist:
+    if arguments.featured_playlists:
         playlists = get_featured_playlists()
         print("List of playlists: ")
         for i, x in enumerate(playlists):
